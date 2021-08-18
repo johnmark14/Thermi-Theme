@@ -59,7 +59,11 @@
                     }
                     axios.post('/cart/add.js', data).then((response) => {
                         store.getCart()
-                    }).catch(error => {
+                    })
+                    .then(() => {
+                        toggleMiniCart.openCart()
+                    })
+                    .catch(error => {
                         console.log(error)
                     })
                 }

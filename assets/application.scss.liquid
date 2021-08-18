@@ -146,6 +146,15 @@ button, input, option, textarea {
     outline: none;
 }
 
+.section {
+    padding: 25px;
+}
+
+img, picture, svg {
+    max-width: 100%;
+    vertical-align: middle;
+}
+
 // Start Header
 .header {
     position:fixed;
@@ -591,4 +600,91 @@ button, input, option, textarea {
     position: fixed;
     top: 0;
     left: 0;
+}
+
+.cart-empty {
+    opacity: 0.2;
+    padding-top: 42px;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+// Start Hero Section
+
+
+.hero-image {
+
+    @include phone {
+        height: 270px;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+}
+
+// Start Rich Text Section
+.heading {
+    font-size: 30px;
+}
+
+.center {
+    text-align: center;
+}
+
+.padding-top {
+    padding-top: 25px;
+}
+
+// Start Image with text section
+
+.image-with-text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include phone {
+        grid-template-columns: 1fr;
+    }
+    &.reverse {
+        direction: rtl;
+    }
+}
+
+
+.image-with-text-desc-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    direction: ltr;
+}
+
+.image-with-text-body {
+    width: 75%;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+// Start Logo List
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 50px;
+
+}
+
+.logo-link {
+    max-width: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        width: 100%;
+    }
 }
