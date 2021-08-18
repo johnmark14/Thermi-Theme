@@ -31,7 +31,7 @@
 
     <a href="/" class="header-title">{{ shop.name }}</a>
 
-    <div class="cart-button-container">
+    <div class="cart-button-container" @click="toggleMiniCart">
       <button class="carl-link">
         <span>
           <template v-if="cart">
@@ -42,22 +42,24 @@
     </div>
   </div>
 
-  <div class="mini-cart">
+  <div class="mini-cart" :class="{ hidden: miniCart}">
     {% render 'mini-cart' %}
   </div>
 </header>
 
 <script>
-  if(document.querySelector('#header')) {
+  if (document.querySelector('#header')) {
     const headerCart = Vue.createApp({
-      delimiters: ['${','}'],
+      delimiters: ['${', '}'],
       data() {
         return {
           cartData: store.state.cartState
         }
       },
-      method: {
-
+      methods: {
+        toggleMiniCart() {
+          toggleMiniCart.openCart()
+        }
       },
       computed: {
         miniCart() {
