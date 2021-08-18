@@ -609,9 +609,58 @@ img, picture, svg {
     line-height: 1.5;
 }
 
+// Start Main Menu Drawer
+.menu-drawer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    max-width: 350px;
+    background: white;
+    padding: 72px 25px 25px 25px;
+    transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1), left 0.5s 0s;
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        box-shadow: 0 4px 48px rgba($color: #000000, $alpha: 0.25);
+        transition-property: opacity;
+        z-index: -1;
+    }
+
+    @include phone {
+        position: fixed;
+        width: calc(100vh - 50px);
+    }
+}
+
+.menu-drawer.hidden {
+    transform: translateX(-100%);
+}
+
+.menu-drawer.hidden::before {
+    opacity: 0;
+}
+
+.menu-drawer-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-button {
+    z-index: 9999;
+}
+
 // Start Hero Section
-
-
 .hero-image {
 
     @include phone {

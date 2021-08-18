@@ -25,16 +25,13 @@
 
 <header class="header " id="header">
   <div class="header-inner flex space-between">
-    <div class="menu-drawer">
-      {% unless template == "product" %}
-        <button class="menu-button">
-          <span>Menu</span>
-        </button>
-      {% else %}
-        <a href="javascript:history.back()" class="menu-button">Back</a>
-      {% endunless %}
-    </div>
-
+    {% unless template == "product" %}
+      <button class="menu-button" @click="toggleMenu">
+        <span>Menu</span>
+      </button>
+    {% else %}
+      <a href="javascript:history.back()" class="menu-button">Back</a>
+    {% endunless %}
     <a href="/" class="header-title">{{ shop.name }}</a>
 
     <div class="cart-button-container" @click="toggleMiniCart">
@@ -46,6 +43,10 @@
         </span>
       </button>
     </div>
+  </div>
+
+  <div class="menu-drawer" :class="{ hidden: menuDrawer }">
+    {% render 'menu-drawer' %}
   </div>
 
   <div class="mini-cart" :class="{ hidden: miniCart}">
@@ -68,6 +69,9 @@
       methods: {
         toggleMiniCart() {
           toggleMiniCart.openCart()
+        },
+        toggleMenu() {
+          toggleMenu.openMenu()
         },
         closeAllDrawer() {
           toggleClose.closeAll()
